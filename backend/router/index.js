@@ -18,13 +18,14 @@ const SignInSchema = z.object({
   password: z.string(),
 });
 
+
 router.post("/signup", async (req, res) => {
   const body = req.body;
   const username = req.body.username;
 
   const { success } = userSchema.safeParse(req.body);
   if (!success) {
-    res.status(411).json({
+    return res.status(411).json({
       message: "Invalid INPUT TYPE",
     });
   }
@@ -33,7 +34,7 @@ router.post("/signup", async (req, res) => {
     username: username,
   });
   if (existingUser) {
-    res.status(403).json({
+    return res.status(403).json({
       message: "User already Exists",
     });
   }

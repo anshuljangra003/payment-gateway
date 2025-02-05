@@ -1,5 +1,5 @@
 import mongoose, { Mongoose, Schema }  from "mongoose";
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect("mongodb+srv://AnshulAj69:iaG8rdyIVXniPvw0@cluster0.sh8fm.mongodb.net/paytm");
 const userSchema=new mongoose.Schema({
     username:{
         type:String,
